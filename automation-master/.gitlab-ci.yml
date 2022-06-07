@@ -1,0 +1,15 @@
+image: 'nbulai/ruby-chromedriver:latest'
+
+stages:
+  - build
+  - test
+  - deploy
+  
+run_scripts:
+  stage: test
+  script:
+    - bundle install
+    - bundle exec cucumber
+  artifacts:
+    paths:
+      - results/
